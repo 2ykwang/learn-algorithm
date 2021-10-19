@@ -54,6 +54,7 @@ def make_list(path):
                 raise ValueError("필요한 키가 포함되어있지 않음")
             
             result.append({
+                "file_name": headers["file"],
                 "file": os.path.join(dir, headers["file"]),
                 "name": headers["name"],
                 "src": headers["src"],
@@ -67,14 +68,30 @@ def make_list(path):
     
     return result
 
-def make_markdown_table(hlist):
+def make_markdown_table(hlist : list[dict]):
     """
     흠..
     """
-    
+    result=[]
+
+    columns = [
+        {"name":"문제 이름", "size": 20},
+        {"name":"유형", "size": 15},
+        {"name":"풀이", "size": 10}, 
+    ]
+    result.append('|'.join([key["name"] for key in columns ]))
+    result.append('|'.join([key["size"]*'-' for key in columns ]))
+    for header in hlist:
+        result.append(f"[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})")
+    result.append('')
+    return os.linesep.join(result)
+
 path = ".\\baekjoon"
 lst = make_list(path)
 print(lst)
+
+md_table = make_markdown_table(lst)
+print(md_table)
 
     # vegetables = yaml.load(f, Loader=yaml.FullLoader)
     # print(vegetables)
