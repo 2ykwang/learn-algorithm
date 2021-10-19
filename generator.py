@@ -85,15 +85,16 @@ def make_markdown_table(hlist: list[dict]):
     result = []
 
     columns = [
+        {"name": "#", "size": 5},
         {"name": "문제 이름", "size": 20},
         {"name": "유형", "size": 15},
         {"name": "풀이", "size": 10},
-    ]
+    ] 
     result.append('|'.join([key["name"] for key in columns]))
     result.append('|'.join([key["size"]*'-' for key in columns]))
-    for header in hlist:
+    for index, header in enumerate(hlist):
         result.append(
-            f"[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})")
+            f"{index+1}|[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})")
     result.append('')
     return '\n'.join(result)
 
