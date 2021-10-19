@@ -1,33 +1,38 @@
 from typing import *
 import fnmatch
-import yaml 
+import yaml
 import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def get_list_of_files(dir_name: str):
     fileList = os.listdir(dir_name)
     result = []
-    for entry in fileList: 
-        full_path = os.path.join(dir_name, entry) 
+    for entry in fileList:
+        full_path = os.path.join(dir_name, entry)
         if os.path.isdir(full_path):
             result = result + get_list_of_files(full_path)
         else:
             result.append(full_path)
     return result
 
-def file_read_to_end(path): 
-    f = open(path,"r",encoding='utf-8')
+
+def file_read_to_end(path: str):
+    f = open(path, "r", encoding='utf-8')
     content = f.read()
-    f.close() 
+    f.close()
     return content
 
-def parse_yaml_headers(mdtext : str):
-    result = {} 
-    try: 
+
+def parse_yaml_headers(mdtext: str):
+    result = {}
+    try:
         start_index = mdtext.index("---")
         if start_index != 0:
-            raise ValueError(f"파싱할 수 없습니다.") 
-        
-        end_index = mdtext.index("---",start_index + 1)
+            raise ValueError(f"파싱할 수 없습니다.")
+
+        end_index = mdtext.index("---", start_index + 1)
         mdtext = mdtext[start_index: end_index]
 
         result = yaml.load(mdtext, Loader=yaml.FullLoader)
@@ -35,29 +40,31 @@ def parse_yaml_headers(mdtext : str):
         raise ValueError
     except Exception as e:
         raise e
-    
+
     return result
 
-def valid_yaml_headers(yaml_dict : dict):
+
+def valid_yaml_headers(yaml_dict: dict):
     keys = ("file", "name", "src", "tags", "done")
     return set(keys).issubset(yaml_dict)
 
-def make_list(path):
+
+def make_list(path: str):
     file_list = fnmatch.filter(get_list_of_files(path), "*.md")
-    
+
     result = []
     for file in file_list:
-        try: 
+        try:
             dir = os.path.dirname(file)
             body = file_read_to_end(file)
             headers = parse_yaml_headers(body)
 
-            if not valid_yaml_headers(headers): 
+            if not valid_yaml_headers(headers):
                 raise ValueError("필요한 키가 포함되어있지 않음")
-            
+
             result.append({
                 "file_name": headers["file"],
-                "file": os.path.join(dir, headers["file"]).replace('\\','/'),
+                "file": os.path.join(dir, headers["file"]).replace('\\', '/'),
                 "name": headers["name"],
                 "src": headers["src"],
                 "tags": headers["tags"],
@@ -67,36 +74,40 @@ def make_list(path):
 
         except Exception as e:
             raise e
-    
+
     return result
 
-def make_markdown_table(hlist : list[dict]):
+
+def make_markdown_table(hlist: list[dict]):
     """
     흠..
     """
-    result=[]
+    result = []
 
     columns = [
-        {"name":"문제 이름", "size": 20},
-        {"name":"유형", "size": 15},
-        {"name":"풀이", "size": 10}, 
+        {"name": "문제 이름", "size": 20},
+        {"name": "유형", "size": 15},
+        {"name": "풀이", "size": 10},
     ]
-    result.append('|'.join([key["name"] for key in columns ]))
-    result.append('|'.join([key["size"]*'-' for key in columns ]))
+    result.append('|'.join([key["name"] for key in columns]))
+    result.append('|'.join([key["size"]*'-' for key in columns]))
     for header in hlist:
-        result.append(f"[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})")
+        result.append(
+            f"[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})")
     result.append('')
-    return os.linesep.join(result)
+    return '\n'.join(result)
 
-path = "./baekjoon"
-lst = make_list(path)
-print(lst)
 
-md_table = make_markdown_table(lst)
-print(md_table)
+if __name__ == "__main__":
+    target_path = "./baekjoon"
+    rows = make_list(target_path)
+    md_table = make_markdown_table(rows)
+    template = file_read_to_end('template.md')
 
-    # vegetables = yaml.load(f, Loader=yaml.FullLoader)
-    # print(vegetables)
+    # 치환 해준다
+    readme_text = template.replace("__file_table__", md_table)
 
-# file_list2 = get_list_of_files("./baekjoon")
-# print(file_list2) 
+    # make readme.md
+    f = open(os.path.join(BASE_DIR, 'README.md'), "w", encoding='utf-8')
+    f.write(readme_text)
+    f.close()
