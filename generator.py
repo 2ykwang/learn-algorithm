@@ -1,3 +1,8 @@
+"""
+TO-DO:
+    - 문제 정렬 기준
+"""
+
 from typing import *
 import fnmatch
 import yaml
@@ -95,7 +100,7 @@ def make_markdown_table(hlist: list[dict]):
     result.append('|'.join([key["size"]*'-' for key in columns])) 
 
     for index, header in enumerate(hlist):
-        done = '✅' if header["done"] else '❌'
+        done = '✔️' if header["done"] else '❌'
         result.append(
             f"{index+1}|[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})|{done}")
     result.append('')
