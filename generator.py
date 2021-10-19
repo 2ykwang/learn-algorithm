@@ -1,4 +1,5 @@
 from typing import *
+import fnmatch
 import yaml 
 import os
 
@@ -42,7 +43,8 @@ def valid_yaml_headers(yaml_dict : dict):
     return set(keys).issubset(yaml_dict)
 
 def make_list(path):
-    file_list = get_list_of_files(path)
+    file_list = fnmatch.filter(get_list_of_files(path), "*.md")
+    
     result = []
     for file in file_list:
         try: 
@@ -55,7 +57,7 @@ def make_list(path):
             
             result.append({
                 "file_name": headers["file"],
-                "file": os.path.join(dir, headers["file"]),
+                "file": os.path.join(dir, headers["file"]).replace('\\','/'),
                 "name": headers["name"],
                 "src": headers["src"],
                 "tags": headers["tags"],
@@ -86,7 +88,7 @@ def make_markdown_table(hlist : list[dict]):
     result.append('')
     return os.linesep.join(result)
 
-path = ".\\baekjoon"
+path = "./baekjoon"
 lst = make_list(path)
 print(lst)
 
@@ -96,5 +98,5 @@ print(md_table)
     # vegetables = yaml.load(f, Loader=yaml.FullLoader)
     # print(vegetables)
 
-# file_list2 = get_list_of_files(".\\baekjoon")
+# file_list2 = get_list_of_files("./baekjoon")
 # print(file_list2) 
