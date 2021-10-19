@@ -6,7 +6,7 @@ tags:
   - 문자열
   - 스택
   - 자료구조
-done: false
+done: True
 ---
 
 # 괄호
