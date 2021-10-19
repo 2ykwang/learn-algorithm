@@ -1,4 +1,4 @@
-name: Run Scraper - Update data # 워크플로우 이름 지정
+name: Run Auto Readme Generator # 워크플로우 이름 지정
 
 on: [push]
 jobs:
