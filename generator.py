@@ -2,7 +2,7 @@
 TO-DO:
     - 문제 정렬 기준
 """
-
+from urllib import parse
 from typing import *
 import fnmatch
 import yaml
@@ -102,13 +102,13 @@ def make_markdown_table(hlist: list[dict],
 
     columns = [
         {"name": "#", "size": 5},
-        {"name": "문제 이름", "size": 20},
-        {"name": "유형", "size": 15},
+        {"name": "문제 이름", "size": 30},
+        {"name": "유형", "size": 25},
         {"name": "풀이", "size": 10},
         {"name": "완료", "size": 6},
     ]
-    result.append('|'.join([key["name"] for key in columns]))
-    result.append('|'.join([key["size"]*'-' for key in columns]))
+    result.append(f'|{"|".join([key["name"] for key in columns])}|')
+    result.append(f'|{"|".join([key["size"]*"-" for key in columns])}|')
 
     for index, header in enumerate(hlist):
         row = []
@@ -118,12 +118,11 @@ def make_markdown_table(hlist: list[dict],
         row.append(str(index+1))
         row.append(f"[{header['name']}]({header['src']})")
         row.append(', '.join(header['tags']))
-        row.append(f"[{header['file_name']}]({header['path']})")
+        row.append(f"[{header['file_name']}]({parse.quote(header['path'])})")
         row.append(done)
 
-        result.append('|'.join(row))
+        result.append(f'|{"|".join(row)}|')
 
-    result.append('')
     return '\n'.join(result)
 
 
@@ -140,6 +139,7 @@ if __name__ == "__main__":
     # 치환 해준다
     readme_text = template.replace("__baekjoon_table__", baekjoon_table)\
         .replace("__leetcode_table__",leetcode_table)
+    
     # make readme.md
     if not debug:
         f = open(os.path.join(BASE_DIR, 'README.md'), "w", encoding='utf-8')
