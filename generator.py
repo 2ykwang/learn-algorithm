@@ -14,12 +14,14 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def get_list_of_files(dir_name: str):
     fileList = os.listdir(dir_name)
     result = []
+
     for entry in fileList:
         full_path = os.path.join(dir_name, entry)
         if os.path.isdir(full_path):
             result = result + get_list_of_files(full_path)
         else:
             result.append(full_path)
+
     return result
 
 
@@ -48,16 +50,19 @@ def parse_yaml_headers(mdtext: str):
 
     return result
 
-
 def valid_yaml_headers(yaml_dict: dict):
-    keys = ("file", "name", "src", "tags", "done")
+    keys = ("file", "name", "src", "tags", "done", "date")
     return set(keys).issubset(yaml_dict)
 
-
-def make_list(path: str):
+def make_filedata_list(path: str):
+    """
+        src->ee
+        
+        eee
+    """
     file_list = fnmatch.filter(get_list_of_files(path), "*.md")
-
     result = []
+
     for file in file_list:
         try:
             dir = os.path.dirname(file)
@@ -75,6 +80,7 @@ def make_list(path: str):
                 "src": headers["src"],
                 "tags": sorted(headers["tags"]),
                 "done": headers["done"],
+                "date": headers["date"],
             })
             print(dir)
 
@@ -82,7 +88,6 @@ def make_list(path: str):
             raise e
 
     return result
-
 
 def make_markdown_table(hlist: list[dict],
                         orderby_done=False):
@@ -92,8 +97,8 @@ def make_markdown_table(hlist: list[dict],
     result = []
 
     # sort
-    hlist = sorted(hlist, key=lambda x: (
-        x["done"] if orderby_done else None, x["tags"]), reverse=True)
+    hlist = sorted(hlist, key=lambda x: (x["tags"], x["date"]))
+    hlist = sorted(hlist, key=lambda x: x["done"], reverse=True)
 
     columns = [
         {"name": "#", "size": 5},
@@ -106,23 +111,39 @@ def make_markdown_table(hlist: list[dict],
     result.append('|'.join([key["size"]*'-' for key in columns]))
 
     for index, header in enumerate(hlist):
+        row = []
+
         done = '✔️' if header["done"] else '❌'
-        result.append(
-            f"{index+1}|[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['path']})|{done}")
+
+        row.append(str(index+1))
+        row.append(f"[{header['name']}]({header['src']})")
+        row.append(', '.join(header['tags']))
+        row.append(f"[{header['file_name']}]({header['path']})")
+        row.append(done)
+
+        result.append('|'.join(row))
+
     result.append('')
     return '\n'.join(result)
 
 
-if __name__ == "__main__":
-    target_path = "./baekjoon"
-    rows = make_list(target_path)
-    md_table = make_markdown_table(rows, orderby_done=True)
+debug = False
+
+if __name__ == "__main__": 
+    rows = make_filedata_list("./baekjoon")
+    baekjoon_table = make_markdown_table(rows, orderby_done=True)
+
+    rows = make_filedata_list("./leetcode")
+    leetcode_table = make_markdown_table(rows, orderby_done=True)
     template = file_read_to_end('template.md')
 
     # 치환 해준다
-    readme_text = template.replace("__file_table__", md_table)
-
+    readme_text = template.replace("__baekjoon_table__", baekjoon_table)\
+        .replace("__leetcode_table__",leetcode_table)
     # make readme.md
-    f = open(os.path.join(BASE_DIR, 'README.md'), "w", encoding='utf-8')
-    f.write(readme_text)
-    f.close()
+    if not debug:
+        f = open(os.path.join(BASE_DIR, 'README.md'), "w", encoding='utf-8')
+        f.write(readme_text)
+        f.close()
+    else:
+        print(readme_text)
