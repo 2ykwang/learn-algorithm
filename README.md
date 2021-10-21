@@ -16,10 +16,10 @@ python
 |4|[큐 2](https://www.acmicpc.net/problem/18258)|자료구조, 큐|[18258.py](./baekjoon/04_18258)|✔️|
 |5|[카드2](https://www.acmicpc.net/problem/2164)|자료구조, 큐|[2164.py](./baekjoon/05_2164)|✔️|
 |6|[쇠막대기](https://www.acmicpc.net/problem/10799)|스택, 자료구조|[10799.py](./baekjoon/09_10799)|✔️|
-|7|[프린터 큐](https://www.acmicpc.net/problem/1966)|구현, 시뮬레이션, 자료구조, 큐|[1966.py](./baekjoon/10_1966)|❌|
-|8|[덱](https://www.acmicpc.net/problem/10866)|덱, 자료구조|[10866.py](./baekjoon/06_10866)|❌|
-|9|[스택 수열](https://www.acmicpc.net/problem/1874)|스택, 자료구조|[1874.py](./baekjoon/07_1874)|❌|
-|10|[후위 표기식2](https://www.acmicpc.net/problem/1935)|스택, 자료구조|[1935.py](./baekjoon/08_1935)|❌|
+|7|[후위 표기식2](https://www.acmicpc.net/problem/1935)|스택, 자료구조|[1935.py](./baekjoon/08_1935)|✔️|
+|8|[프린터 큐](https://www.acmicpc.net/problem/1966)|구현, 시뮬레이션, 자료구조, 큐|[1966.py](./baekjoon/10_1966)|❌|
+|9|[덱](https://www.acmicpc.net/problem/10866)|덱, 자료구조|[10866.py](./baekjoon/06_10866)|❌|
+|10|[스택 수열](https://www.acmicpc.net/problem/1874)|스택, 자료구조|[1874.py](./baekjoon/07_1874)|❌|
 
 ### 릿코드
 
