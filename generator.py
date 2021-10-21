@@ -69,10 +69,11 @@ def make_list(path: str):
 
             result.append({
                 "file_name": headers["file"],
+                "path": dir.replace('\\', '/'),
                 "file": os.path.join(dir, headers["file"]).replace('\\', '/'),
                 "name": headers["name"],
                 "src": headers["src"],
-                "tags": headers["tags"],
+                "tags": sorted(headers["tags"]),
                 "done": headers["done"],
             })
             print(dir)
@@ -83,11 +84,16 @@ def make_list(path: str):
     return result
 
 
-def make_markdown_table(hlist: list[dict]):
+def make_markdown_table(hlist: list[dict],
+                        orderby_done=False):
     """
     흠..
     """
     result = []
+
+    # sort
+    hlist = sorted(hlist, key=lambda x: (
+        x["done"] if orderby_done else None, x["tags"]), reverse=True)
 
     columns = [
         {"name": "#", "size": 5},
@@ -95,14 +101,14 @@ def make_markdown_table(hlist: list[dict]):
         {"name": "유형", "size": 15},
         {"name": "풀이", "size": 10},
         {"name": "완료", "size": 6},
-    ] 
+    ]
     result.append('|'.join([key["name"] for key in columns]))
-    result.append('|'.join([key["size"]*'-' for key in columns])) 
+    result.append('|'.join([key["size"]*'-' for key in columns]))
 
     for index, header in enumerate(hlist):
         done = '✔️' if header["done"] else '❌'
         result.append(
-            f"{index+1}|[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['file']})|{done}")
+            f"{index+1}|[{header['name']}]({header['src']})|{', '.join(header['tags'])}|[{header['file_name']}]({header['path']})|{done}")
     result.append('')
     return '\n'.join(result)
 
@@ -110,7 +116,7 @@ def make_markdown_table(hlist: list[dict]):
 if __name__ == "__main__":
     target_path = "./baekjoon"
     rows = make_list(target_path)
-    md_table = make_markdown_table(rows)
+    md_table = make_markdown_table(rows, orderby_done=True)
     template = file_read_to_end('template.md')
 
     # 치환 해준다
