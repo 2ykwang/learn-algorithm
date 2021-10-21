@@ -89,15 +89,19 @@ def make_filedata_list(path: str):
 
     return result
 
-def make_markdown_table(hlist: list[dict],
-                        orderby_done=False):
+def make_markdown_table(hlist: list[dict]
+                        , orderby_date=False):
     """
     흠..
     """
     result = []
 
     # sort
-    hlist = sorted(hlist, key=lambda x: (x["tags"], x["date"]))
+    orderKey = lambda x: (x["tags"], x["date"])
+    if orderby_date:
+        orderKey = lambda x: (x["date"], x["tags"])
+
+    hlist = sorted(hlist, key=orderKey)
     hlist = sorted(hlist, key=lambda x: x["done"], reverse=True)
 
     columns = [
@@ -130,10 +134,10 @@ debug = False
 
 if __name__ == "__main__": 
     rows = make_filedata_list("./baekjoon")
-    baekjoon_table = make_markdown_table(rows, orderby_done=True)
+    baekjoon_table = make_markdown_table(rows, orderby_date=True)
 
     rows = make_filedata_list("./leetcode")
-    leetcode_table = make_markdown_table(rows, orderby_done=True)
+    leetcode_table = make_markdown_table(rows)
     template = file_read_to_end('template.md')
 
     # 치환 해준다
