@@ -6,7 +6,7 @@ python
 
 ## 문제 풀이
 
-__file_table__
+__baekjoon_table__
 
 ## 참조할만한 곳
 
