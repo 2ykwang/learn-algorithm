@@ -5,7 +5,7 @@ src: "https://www.acmicpc.net/problem/1158"
 tags:
   - 큐
   - 자료구조
-done: True
+done: true
 ---
 
 # 요세푸스 문제
@@ -23,6 +23,7 @@ while len(answer) != n:
     # 남은 사람
     size = len(nums)
     # 제거 할 사람
+    # nums
     target = current_index - 1 if size > current_index else ((current_index-1) % size)
 
     answer.append(nums.pop(target))
