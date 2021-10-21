@@ -5,7 +5,7 @@ src: "https://www.acmicpc.net/problem/2164"
 tags:
   - 큐
   - 자료구조
-done: false
+done: true
 ---
 
 # 카드2
