@@ -1,6 +1,6 @@
 ---
 file: "zigzag-conversion.py"
-name: "ZigZag Conversion"
+name: "6. ZigZag Conversion"
 src: "https://leetcode.com/problems/zigzag-conversion/"
 tags:
   - String
