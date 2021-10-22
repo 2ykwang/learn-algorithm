@@ -50,14 +50,16 @@ def parse_yaml_headers(mdtext: str):
 
     return result
 
+
 def valid_yaml_headers(yaml_dict: dict):
     keys = ("file", "name", "src", "tags", "done", "date")
     return set(keys).issubset(yaml_dict)
 
+
 def make_filedata_list(path: str):
     """
         src->ee
-        
+
         eee
     """
     file_list = fnmatch.filter(get_list_of_files(path), "*.md")
@@ -89,17 +91,17 @@ def make_filedata_list(path: str):
 
     return result
 
-def make_markdown_table(hlist: list[dict]
-                        , orderby_date=False):
+
+def make_markdown_table(hlist: list[dict], orderby_date=False):
     """
     흠..
     """
     result = []
 
     # sort
-    orderKey = lambda x: (x["tags"], x["date"])
+    def orderKey(x): return (x["tags"], x["date"])
     if orderby_date:
-        orderKey = lambda x: (x["date"], x["tags"])
+        def orderKey(x): return (x["date"], x["tags"])
 
     hlist = sorted(hlist, key=orderKey)
     hlist = sorted(hlist, key=lambda x: x["done"], reverse=True)
@@ -132,18 +134,24 @@ def make_markdown_table(hlist: list[dict]
 
 debug = False
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     rows = make_filedata_list("./baekjoon")
     baekjoon_table = make_markdown_table(rows, orderby_date=True)
 
     rows = make_filedata_list("./leetcode")
     leetcode_table = make_markdown_table(rows)
+
+    rows = make_filedata_list("./programmers")
+    programmers_table = make_markdown_table(rows)
+
     template = file_read_to_end('template.md')
 
     # 치환 해준다
-    readme_text = template.replace("__baekjoon_table__", baekjoon_table)\
-        .replace("__leetcode_table__",leetcode_table)
-    
+    readme_text = template\
+        .replace("__baekjoon_table__", baekjoon_table)\
+        .replace("__leetcode_table__", leetcode_table)\
+        .replace("__programmers_table__", programmers_table)
+
     # make readme.md
     if not debug:
         f = open(os.path.join(BASE_DIR, 'README.md'), "w", encoding='utf-8')
