@@ -1,8 +1,10 @@
 # 알고리즘 공부
 
+일주일에 세문제만 풀자
+
 ## 사용 언어
 
-python
+- Python
 
 ## 문제 풀이
 
@@ -10,14 +12,20 @@ python
 
 __baekjoon_table__
 
+---
+
 ### 릿코드
 
 __leetcode_table__
+
+---
 
 ### 프로그래머스
 
 __programmers_table__
 
+---
+
 ## 참조할만한 곳
 
-* [코드없는 프로그래밍](https://www.youtube.com/channel/UCHcG02L6TSS-StkSbqVy6Fg)
+- [코드없는 프로그래밍](https://www.youtube.com/channel/UCHcG02L6TSS-StkSbqVy6Fg)
