@@ -1,5 +1,5 @@
 ---
-file: "3진법 뒤집기.py"
+file: "3진법 뒤집기.cs"
 name: "3진법 뒤집기"
 src: "https://programmers.co.kr/learn/courses/30/lessons/68935"
 tags:

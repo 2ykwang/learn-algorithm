@@ -1,5 +1,5 @@
 ---
-file: "K번째수.py"
+file: "K번째수.cs"
 name: "K번째수"
 src: "https://programmers.co.kr/learn/courses/30/lessons/42748?language=csharp"
 tags:
