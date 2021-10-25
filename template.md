@@ -14,13 +14,19 @@ __baekjoon_table__
 
 ---
 
-### 릿코드
+### [solved.ac](https://solved.ac/class) 백준
+
+__solved_table__
+
+---
+
+### [릿코드](https://leetcode.com/)
 
 __leetcode_table__
 
 ---
 
-### 프로그래머스
+### [프로그래머스](https://programmers.co.kr/)
 
 __programmers_table__
 

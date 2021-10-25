@@ -144,13 +144,17 @@ if __name__ == "__main__":
     rows = make_filedata_list("./programmers")
     programmers_table = make_markdown_table(rows)
 
+    rows = make_filedata_list("./solved")
+    solved_table = make_markdown_table(rows)
+
     template = file_read_to_end('template.md')
 
     # 치환 해준다
     readme_text = template\
         .replace("__baekjoon_table__", baekjoon_table)\
         .replace("__leetcode_table__", leetcode_table)\
-        .replace("__programmers_table__", programmers_table)
+        .replace("__programmers_table__", programmers_table)\
+        .replace("__solved_table__", solved_table)
 
     # make readme.md
     if not debug:
