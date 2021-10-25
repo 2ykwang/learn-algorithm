@@ -29,7 +29,7 @@
 
 |#|문제 이름|유형|풀이|완료|
 |-----|------------------------------|-------------------------|----------|------|
-|1|[단어 정렬](https://www.acmicpc.net/problem/1181)|Class 2|[1181.py](./solved/class2/%EB%8B%A8%EC%96%B4%20%EC%A0%95%EB%A0%AC)|✔️|
+|1|[단어 정렬](https://www.acmicpc.net/problem/1181)|Class 2, 정렬|[1181.py](./solved/class2/%EB%8B%A8%EC%96%B4%20%EC%A0%95%EB%A0%AC)|✔️|
 
 ---
 
@@ -49,6 +49,7 @@
 |-----|------------------------------|-------------------------|----------|------|
 |1|[3진법 뒤집기](https://programmers.co.kr/learn/courses/30/lessons/68935)|월간 코드 챌린지 시즌1|[3진법 뒤집기.cs](./programmers/%EC%9B%94%EA%B0%84%20%EC%BD%94%EB%93%9C%20%EC%B1%8C%EB%A6%B0%EC%A7%80%20%EC%8B%9C%EC%A6%8C1/3%EC%A7%84%EB%B2%95%20%EB%92%A4%EC%A7%91%EA%B8%B0)|✔️|
 |2|[K번째수](https://programmers.co.kr/learn/courses/30/lessons/42748?language=csharp)|정렬|[K번째수.cs](./programmers/%EC%A0%95%EB%A0%AC/K%EB%B2%88%EC%A7%B8%EC%88%98)|✔️|
+|3|[H-Index](https://programmers.co.kr/learn/courses/30/lessons/42747?language=python3#)|정렬|[H-Index.py](./programmers/%EC%A0%95%EB%A0%AC/H-Index)|✔️|
 
 ---
 
