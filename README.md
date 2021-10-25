@@ -29,8 +29,9 @@
 
 |#|문제 이름|유형|풀이|완료|
 |-----|------------------------------|-------------------------|----------|------|
-|1|[1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)|Dynamic Programming, Math, Memoization|[n-th-tribonacci-number.py](./leetcode/1137.%20N-th%20Tribonacci%20Number)|✔️|
-|2|[6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|String|[zigzag-conversion.py](./leetcode/6.%20ZigZag%20Conversion)|✔️|
+|1|[70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|Dynamic Programming, Math, Memoization|[climbing-stairs.py](./leetcode/70.%20Climbing%20Stairs)|✔️|
+|2|[1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)|Dynamic Programming, Math, Memoization|[n-th-tribonacci-number.py](./leetcode/1137.%20N-th%20Tribonacci%20Number)|✔️|
+|3|[6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|String|[zigzag-conversion.py](./leetcode/6.%20ZigZag%20Conversion)|✔️|
 
 ---
 
