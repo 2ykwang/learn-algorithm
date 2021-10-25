@@ -15,22 +15,26 @@ date: 2021-10-20
 ## 정답 코드
 
 ```python
+
+# ((( )) - > depth = 1
+# (( ))) - > depth = -1
+# ))) ((( -> depth = 0 
 n = int(input())
 
 for i in range(n):
     ps = input()
     #현재 괄호 깊이
-    deps = 0
+    depth = 0
     for chr in ps:
-        # 괄호 열면 deps + 1
+        # 괄호 열면 depth + 1
         if chr == '(':
-            deps += 1
-        # 괄호 닫으면 deps - 1
+            depth += 1
+        # 괄호 닫으면 depth - 1
         elif chr == ')':
-            deps -= 1
+            depth -= 1
         # 괄호 연것보다 닫는게 많을경우 break
-        if deps < 0:
+        if depth < 0:
             break
     # 최종적으로 괄호의 깊이가 0이 돼야 괄호 문자열이 된다.
-    print("YES" if deps==0 else "NO")
+    print("YES" if depth==0 else "NO")
 ```
