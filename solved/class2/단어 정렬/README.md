@@ -4,6 +4,7 @@ name: "단어 정렬"
 src: "https://www.acmicpc.net/problem/1181"
 tags:
   - Class 2
+  - 정렬
 done: true
 date: 2021-10-25
 ---
