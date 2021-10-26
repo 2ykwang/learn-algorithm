@@ -12,22 +12,22 @@
 
 |#|문제 이름|유형|풀이|완료|
 |-----|------------------------------|-------------------------|----------|------|
-|1|[괄호](https://www.acmicpc.net/problem/9012)|문자열, 스택, 자료구조|[9012.py](./baekjoon/03_9012)|✔️|
-|2|[스택](https://www.acmicpc.net/problem/10828)|스택, 자료구조|[10828.py](./baekjoon/02_10828)|✔️|
-|3|[요세푸스 문제](https://www.acmicpc.net/problem/1158)|자료구조, 큐|[1158.py](./baekjoon/01_1158)|✔️|
-|4|[큐 2](https://www.acmicpc.net/problem/18258)|자료구조, 큐|[18258.py](./baekjoon/04_18258)|✔️|
-|5|[카드2](https://www.acmicpc.net/problem/2164)|자료구조, 큐|[2164.py](./baekjoon/05_2164)|✔️|
-|6|[덱](https://www.acmicpc.net/problem/10866)|덱, 자료구조|[10866.py](./baekjoon/06_10866)|✔️|
-|7|[쇠막대기](https://www.acmicpc.net/problem/10799)|스택, 자료구조|[10799.py](./baekjoon/09_10799)|✔️|
-|8|[스택 수열](https://www.acmicpc.net/problem/1874)|스택, 자료구조|[1874.py](./baekjoon/07_1874)|✔️|
-|9|[후위 표기식2](https://www.acmicpc.net/problem/1935)|스택, 자료구조|[1935.py](./baekjoon/08_1935)|✔️|
-|10|[트리의 부모 찾기](https://www.acmicpc.net/problem/11725)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 너비 우선 탐색, 트리|[11725.py](./baekjoon/14_11725)|❌|
-|11|[가장 가까운 공통 조상](https://www.acmicpc.net/problem/3584)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 최소 공통 조상, 트리|[3584.py](./baekjoon/16_3584)|❌|
-|12|[트리의 지름](https://www.acmicpc.net/problem/1967)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리|[1967.py](./baekjoon/15_1967)|❌|
-|13|[생태학](https://www.acmicpc.net/problem/4358)|문자열, 자료 구조, 트리를 사용한 집합과 맵, 해시를 사용한 집합과 맵|[4358.py](./baekjoon/13_4358)|❌|
-|14|[트리의 순회](https://www.acmicpc.net/problem/2263)|분할 정복, 재귀, 트리|[2263.py](./baekjoon/17_2263)|❌|
-|15|[N번째 큰 수](https://www.acmicpc.net/problem/2075)|우선순위 큐, 자료 구조, 정렬|[2075.py](./baekjoon/12_2075)|❌|
-|16|[이중 우선순위 큐](https://www.acmicpc.net/problem/7662)|우선순위 큐, 자료 구조, 트리를 사용한 집합과 맵|[7662.py](./baekjoon/11_7662)|❌|
+|1|[괄호](https://www.acmicpc.net/problem/9012)|문자열, 스택, 자료구조|[9012.py](./baekjoon/week_01/03_9012)|✔️|
+|2|[스택](https://www.acmicpc.net/problem/10828)|스택, 자료구조|[10828.py](./baekjoon/week_01/02_10828)|✔️|
+|3|[요세푸스 문제](https://www.acmicpc.net/problem/1158)|자료구조, 큐|[1158.py](./baekjoon/week_01/01_1158)|✔️|
+|4|[큐 2](https://www.acmicpc.net/problem/18258)|자료구조, 큐|[18258.py](./baekjoon/week_01/04_18258)|✔️|
+|5|[카드2](https://www.acmicpc.net/problem/2164)|자료구조, 큐|[2164.py](./baekjoon/week_01/05_2164)|✔️|
+|6|[덱](https://www.acmicpc.net/problem/10866)|덱, 자료구조|[10866.py](./baekjoon/week_01/06_10866)|✔️|
+|7|[쇠막대기](https://www.acmicpc.net/problem/10799)|스택, 자료구조|[10799.py](./baekjoon/week_01/09_10799)|✔️|
+|8|[스택 수열](https://www.acmicpc.net/problem/1874)|스택, 자료구조|[1874.py](./baekjoon/week_01/07_1874)|✔️|
+|9|[후위 표기식2](https://www.acmicpc.net/problem/1935)|스택, 자료구조|[1935.py](./baekjoon/week_01/08_1935)|✔️|
+|10|[트리의 부모 찾기](https://www.acmicpc.net/problem/11725)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 너비 우선 탐색, 트리|[11725.py](./baekjoon/week_02/14_11725)|❌|
+|11|[가장 가까운 공통 조상](https://www.acmicpc.net/problem/3584)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 최소 공통 조상, 트리|[3584.py](./baekjoon/week_02/16_3584)|❌|
+|12|[트리의 지름](https://www.acmicpc.net/problem/1967)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리|[1967.py](./baekjoon/week_02/15_1967)|❌|
+|13|[생태학](https://www.acmicpc.net/problem/4358)|문자열, 자료 구조, 트리를 사용한 집합과 맵, 해시를 사용한 집합과 맵|[4358.py](./baekjoon/week_02/13_4358)|❌|
+|14|[트리의 순회](https://www.acmicpc.net/problem/2263)|분할 정복, 재귀, 트리|[2263.py](./baekjoon/week_02/17_2263)|❌|
+|15|[N번째 큰 수](https://www.acmicpc.net/problem/2075)|우선순위 큐, 자료 구조, 정렬|[2075.py](./baekjoon/week_02/12_2075)|❌|
+|16|[이중 우선순위 큐](https://www.acmicpc.net/problem/7662)|우선순위 큐, 자료 구조, 트리를 사용한 집합과 맵|[7662.py](./baekjoon/week_02/11_7662)|❌|
 
 ---
 
