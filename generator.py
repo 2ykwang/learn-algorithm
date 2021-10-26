@@ -2,6 +2,7 @@
 TO-DO:
     - 문제 정렬 기준
 """
+from collections import defaultdict
 from urllib import parse
 from typing import *
 import fnmatch
@@ -33,7 +34,7 @@ def file_read_to_end(path: str):
 
 
 def parse_yaml_headers(mdtext: str):
-    result = {}
+    result = defaultdict(None)
     try:
         start_index = mdtext.index("---")
         if start_index != 0:
@@ -74,15 +75,18 @@ def make_filedata_list(path: str):
             if not valid_yaml_headers(headers):
                 raise ValueError("필요한 키가 포함되어있지 않음")
 
+            # draft 처리
+            if headers.get("draft"): continue
+
             result.append({
-                "file_name": headers["file"],
+                "file_name": headers.get("file"),
                 "path": dir.replace('\\', '/'),
-                "file": os.path.join(dir, headers["file"]).replace('\\', '/'),
-                "name": headers["name"],
-                "src": headers["src"],
-                "tags": sorted(headers["tags"]),
-                "done": headers["done"],
-                "date": headers["date"],
+                "file": os.path.join(dir, headers.get("file")).replace('\\', '/'),
+                "name": headers.get("name"),
+                "src": headers.get("src"),
+                "tags": sorted(headers.get("tags")),
+                "done": headers.get("done"),
+                "date": headers.get("date"),
             })
             print(dir)
 
@@ -120,7 +124,6 @@ def make_markdown_table(hlist: list[dict], orderby_date=False):
         row = []
 
         done = '✔️' if header["done"] else '❌'
-
         row.append(str(index+1))
         row.append(f"[{header['name']}]({header['src']})")
         row.append(', '.join(header['tags']))
