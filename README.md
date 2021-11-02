@@ -28,6 +28,13 @@
 |14|[트리의 지름](https://www.acmicpc.net/problem/1967)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리|[1967.py](./baekjoon/week_02/15_1967)|❌|
 |15|[트리의 순회](https://www.acmicpc.net/problem/2263)|분할 정복, 재귀, 트리|[2263.py](./baekjoon/week_02/17_2263)|❌|
 |16|[이중 우선순위 큐](https://www.acmicpc.net/problem/7662)|우선순위 큐, 자료 구조, 트리를 사용한 집합과 맵|[7662.py](./baekjoon/week_02/11_7662)|❌|
+|17|[에라토스테네스의 체](https://www.acmicpc.net/problem/2960)|구현, 소수 판정, 수학, 에라토스테네스의 체, 정수론|[2960.py](./baekjoon/week_03/18_2960)|❌|
+|18|[완전 이진 트리](https://www.acmicpc.net/problem/9934)|구현, 재귀, 트리|[9934.py](./baekjoon/week_03/21_9934)|❌|
+|19|[트리](https://www.acmicpc.net/problem/1068)|그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리|[1068.py](./baekjoon/week_03/23_1068)|❌|
+|20|[이진 검색 트리](https://www.acmicpc.net/problem/5639)|그래프 이론, 그래프 탐색, 재귀, 트리|[5639.py](./baekjoon/week_03/22_5639)|❌|
+|21|[소수&팰린드롬](https://www.acmicpc.net/problem/1747)|브루트포스 알고리즘, 소수 판정, 수학, 에라토스테네스의 체, 정수론|[1747.py](./baekjoon/week_03/24_1747)|❌|
+|22|[LCM](https://www.acmicpc.net/problem/5347)|수학, 유클리드 호제법, 정수론|[5347.py](./baekjoon/week_03/19_5347)|❌|
+|23|[GCD 합](https://www.acmicpc.net/problem/9613)|수학, 유클리드 호제법, 정수론|[9613.py](./baekjoon/week_03/20_9613)|❌|
 
 ---
 
