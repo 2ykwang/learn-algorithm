@@ -8,6 +8,7 @@ from typing import *
 import fnmatch
 import yaml
 import os
+from pytablewriter import MarkdownTableWriter
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -110,29 +111,21 @@ def make_markdown_table(hlist: list[dict], orderby_date=False):
     hlist = sorted(hlist, key=orderKey)
     hlist = sorted(hlist, key=lambda x: x["done"], reverse=True)
 
-    columns = [
-        {"name": "#", "size": 5},
-        {"name": "문제 이름", "size": 30},
-        {"name": "유형", "size": 25},
-        {"name": "풀이", "size": 10},
-        {"name": "완료", "size": 6},
-    ]
-    result.append(f'|{"|".join([key["name"] for key in columns])}|')
-    result.append(f'|{"|".join([key["size"]*"-" for key in columns])}|')
-
-    for index, header in enumerate(hlist):
-        row = []
-
-        done = '✔️' if header["done"] else '❌'
-        row.append(str(index+1))
-        row.append(f"[{header['name']}]({header['src']})")
-        row.append(', '.join(header['tags']))
-        row.append(f"[{header['file_name']}]({parse.quote(header['path'])})")
-        row.append(done)
-
-        result.append(f'|{"|".join(row)}|')
-
-    return '\n'.join(result)
+    writer = MarkdownTableWriter(
+        headers=[ "이름", "태그", "풀이", "완료"],
+        value_matrix=[
+            [
+                f"[{x['name']}]({x['src']})",
+                ', '.join(x['tags']), 
+                f"[{x['file_name']}]({parse.quote(x['path'])})", 
+                f"{'✔️' if x['done'] else '❌'}",
+            ]
+            for x in hlist
+        ],
+        add_index_column=True,
+        margin=1
+    )
+    return writer.dumps()
 
 
 debug = False
