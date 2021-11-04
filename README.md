@@ -23,17 +23,17 @@
 | [후위 표기식2](https://www.acmicpc.net/problem/1935)          | 스택, 자료 구조                                                     | [1935.py](./baekjoon/week_01/08_1935)   | ✔️   | Silver III |
 | [생태학](https://www.acmicpc.net/problem/4358)                | 문자열, 자료 구조, 트리를 사용한 집합과 맵, 해시를 사용한 집합과 맵 | [4358.py](./baekjoon/week_02/13_4358)   | ✔️   | Gold V     |
 | [N번째 큰 수](https://www.acmicpc.net/problem/2075)           | 우선순위 큐, 자료 구조, 정렬                                        | [2075.py](./baekjoon/week_02/12_2075)   | ✔️   | Gold V     |
+| [에라토스테네스의 체](https://www.acmicpc.net/problem/2960)   | 구현, 소수 판정, 수학, 에라토스테네스의 체, 정수론                  | [2960.py](./baekjoon/week_03/18_2960)   | ✔️   | Silver IV  |
+| [소수&팰린드롬](https://www.acmicpc.net/problem/1747)         | 브루트포스 알고리즘, 소수 판정, 수학, 에라토스테네스의 체, 정수론   | [1747.py](./baekjoon/week_03/24_1747)   | ✔️   | Gold V     |
 | [LCM](https://www.acmicpc.net/problem/5347)                   | 수학, 유클리드 호제법, 정수론                                       | [5347.py](./baekjoon/week_03/19_5347)   | ✔️   | Silver IV  |
 | [트리의 부모 찾기](https://www.acmicpc.net/problem/11725)     | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 너비 우선 탐색, 트리      | [11725.py](./baekjoon/week_02/14_11725) | ❌   | Silver II  |
 | [가장 가까운 공통 조상](https://www.acmicpc.net/problem/3584) | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 최소 공통 조상, 트리      | [3584.py](./baekjoon/week_02/16_3584)   | ❌   | Gold IV    |
 | [트리의 지름](https://www.acmicpc.net/problem/1967)           | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리                      | [1967.py](./baekjoon/week_02/15_1967)   | ❌   | Gold IV    |
 | [트리의 순회](https://www.acmicpc.net/problem/2263)           | 분할 정복, 재귀, 트리                                               | [2263.py](./baekjoon/week_02/17_2263)   | ❌   | Gold III   |
 | [이중 우선순위 큐](https://www.acmicpc.net/problem/7662)      | 우선순위 큐, 자료 구조, 트리를 사용한 집합과 맵                     | [7662.py](./baekjoon/week_02/11_7662)   | ❌   | Gold V     |
-| [에라토스테네스의 체](https://www.acmicpc.net/problem/2960)   | 구현, 소수 판정, 수학, 에라토스테네스의 체, 정수론                  | [2960.py](./baekjoon/week_03/18_2960)   | ❌   | Silver IV  |
 | [완전 이진 트리](https://www.acmicpc.net/problem/9934)        | 구현, 재귀, 트리                                                    | [9934.py](./baekjoon/week_03/21_9934)   | ❌   | Silver I   |
 | [트리](https://www.acmicpc.net/problem/1068)                  | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리                      | [1068.py](./baekjoon/week_03/23_1068)   | ❌   | Gold V     |
 | [이진 검색 트리](https://www.acmicpc.net/problem/5639)        | 그래프 이론, 그래프 탐색, 재귀, 트리                                | [5639.py](./baekjoon/week_03/22_5639)   | ❌   | Silver I   |
-| [소수&팰린드롬](https://www.acmicpc.net/problem/1747)         | 브루트포스 알고리즘, 소수 판정, 수학, 에라토스테네스의 체, 정수론   | [1747.py](./baekjoon/week_03/24_1747)   | ❌   | Gold V     |
 | [GCD 합](https://www.acmicpc.net/problem/9613)                | 수학, 유클리드 호제법, 정수론                                       | [9613.py](./baekjoon/week_03/20_9613)   | ❌   | Silver III |
 
 
