@@ -1,12 +1,15 @@
 ---
-file: "9012.py"
+file: "9012.md"
 name: "괄호"
 src: "https://www.acmicpc.net/problem/9012"
-tags:
-  - 문자열
+tags: 
+  - 자료 구조
   - 스택
-  - 자료구조
+  - 문자열
 done: true
+draft: false
+level: 7
+difficulty: "Silver IV"
 date: 2021-10-20
 ---
 

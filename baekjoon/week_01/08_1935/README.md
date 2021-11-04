@@ -1,11 +1,14 @@
 ---
-file: "1935.py"
+file: "1935.md"
 name: "후위 표기식2"
 src: "https://www.acmicpc.net/problem/1935"
-tags:
+tags: 
+  - 자료 구조
   - 스택
-  - 자료구조
 done: true
+draft: false
+level: 8
+difficulty: "Silver III"
 date: 2021-10-21
 ---
 

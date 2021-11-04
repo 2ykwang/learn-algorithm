@@ -1,11 +1,14 @@
 ---
-file: "9934.py"
+file: "9934.md"
 name: "완전 이진 트리"
 src: "https://www.acmicpc.net/problem/9934"
-tags:
+tags: 
   - 구현
-  - 트리
   - 재귀
+  - 트리
 done: false
+draft: false
+level: 10
+difficulty: "Silver I"
 date: 2021-11-02
 ---

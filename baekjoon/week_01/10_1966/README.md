@@ -1,14 +1,16 @@
 ---
-file: "1966.py"
+file: "1966.md"
 name: "프린터 큐"
 src: "https://www.acmicpc.net/problem/1966"
-tags:
+tags: 
+  - 자료 구조
   - 구현
-  - 시뮬레이션
   - 큐
-  - 자료구조
+  - 시뮬레이션
 done: false
 draft: true
+level: 8
+difficulty: "Silver III"
 date: 2021-10-21
 ---
 

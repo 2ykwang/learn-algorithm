@@ -1,13 +1,16 @@
 ---
-file: "4358.py"
+file: "4358.md"
 name: "생태학"
 src: "https://www.acmicpc.net/problem/4358"
-tags:
+tags: 
   - 자료 구조
+  - 해시를 사용한 집합과 맵
   - 문자열
   - 트리를 사용한 집합과 맵
-  - 해시를 사용한 집합과 맵
 done: true
+draft: false
+level: 11
+difficulty: "Gold V"
 date: 2021-10-26
 ---
 

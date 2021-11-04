@@ -1,11 +1,14 @@
 ---
-file: "10828.py"
+file: "10828.md"
 name: "스택"
 src: "https://www.acmicpc.net/problem/10828"
-tags:
+tags: 
+  - 자료 구조
   - 스택
-  - 자료구조
 done: true
+draft: false
+level: 7
+difficulty: "Silver IV"
 date: 2021-10-20
 ---
 

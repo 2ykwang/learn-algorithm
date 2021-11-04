@@ -40,7 +40,6 @@ __tier_text = {
     31: "Master",
 }
 
-
 def write_all_text(path: str, text: str) -> None:
     f = open(path, 'w')
     f.write(text)
@@ -50,15 +49,15 @@ def write_all_text(path: str, text: str) -> None:
 def make_problem_yaml(problem: dict) -> str:
     lines = []
     lines.append("---")
-    lines.append(f"name: {problem['name']}")
-    lines.append(f"src: {problem['url']}")
-    
+    lines.append(f"file: \"{problem['id']}.md\"")
+    lines.append(f"name: \"{problem['name']}\"")
+    lines.append(f"src: \"{problem['url']}\"")
     tags = '\n'+'\n'.join(f'  - {x}' for x in problem['tags']) if len(problem['tags']) > 0 else ''
     lines.append(f"tags: {tags}")
     lines.append(f"done: false")
     lines.append(f"draft: false")
     lines.append(f"level: {problem['level']}")
-    lines.append(f"tier: {problem['level_text']}")
+    lines.append(f"difficulty: \"{problem['difficulty']}\"")
     lines.append(f"date: {datetime.datetime.now().strftime('%Y-%m-%d')}")
     lines.append("---\n")
     return '\n'.join(lines)
@@ -84,7 +83,7 @@ def get_problems(problems: list) -> dict:
         problem_info["id"] = problem["problemId"]
         problem_info["name"] = html.unescape(problem["titleKo"])
         problem_info["level"] = problem["level"]
-        problem_info["level_text"] = __tier_text[problem["level"]]
+        problem_info["difficulty"] = __tier_text[problem["level"]]
         problem_info["url"] = f"https://www.acmicpc.net/problem/{problem['problemId']}"
         # language ko만 추출
         if problem["tags"] is not None:
@@ -152,7 +151,7 @@ if __name__ == '__main__':
             table_name="example_table",
             headers=["문제 번호", "이름", "문제 레벨", "solved.ac 티어", "태그"],
             value_matrix=[
-                [x['id'], x['name'], x['level'], x['level_text'], ', '.join(x['tags'])] for x in problems_info
+                [x['id'], x['name'], x['level'], x['difficulty'], ', '.join(x['tags'])] for x in problems_info
             ],
             margin=2
         )

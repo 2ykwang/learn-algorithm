@@ -1,12 +1,15 @@
 ---
-file: "2075.py"
+file: "2075.md"
 name: "N번째 큰 수"
 src: "https://www.acmicpc.net/problem/2075"
-tags:
+tags: 
   - 자료 구조
-  - 정렬
   - 우선순위 큐
+  - 정렬
 done: true
+draft: false
+level: 11
+difficulty: "Gold V"
 date: 2021-10-26
 ---
 

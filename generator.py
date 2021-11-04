@@ -79,7 +79,7 @@ def make_filedata_list(path: str):
             # draft 처리
             if headers.get("draft"): continue
 
-            result.append({
+            item = {
                 "file_name": headers.get("file"),
                 "path": dir.replace('\\', '/'),
                 "file": os.path.join(dir, headers.get("file")).replace('\\', '/'),
@@ -88,8 +88,11 @@ def make_filedata_list(path: str):
                 "tags": sorted(headers.get("tags")),
                 "done": headers.get("done"),
                 "date": headers.get("date"),
-            })
-            print(dir)
+                "level": headers.get("level"),
+                "difficulty": headers.get("difficulty"),
+            }
+            result.append(item)
+            print(file)
 
         except Exception as e:
             raise e
@@ -112,13 +115,15 @@ def make_markdown_table(hlist: list[dict], orderby_date=False):
     hlist = sorted(hlist, key=lambda x: x["done"], reverse=True)
 
     writer = MarkdownTableWriter(
-        headers=[ "이름", "태그", "풀이", "완료"],
+        headers=[ "이름", "태그", "풀이", "완료", "난이도"],
         value_matrix=[
             [
                 f"[{x['name']}]({x['src']})",
                 ', '.join(x['tags']), 
                 f"[{x['file_name']}]({parse.quote(x['path'])})", 
                 f"{'✔️' if x['done'] else '❌'}",
+                f"{x['difficulty']}"
+
             ]
             for x in hlist
         ],

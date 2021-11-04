@@ -1,11 +1,14 @@
 ---
-file: "10866.py"
+file: "10866.md"
 name: "덱"
 src: "https://www.acmicpc.net/problem/10866"
-tags:
+tags: 
+  - 자료 구조
   - 덱
-  - 자료구조
 done: true
+draft: false
+level: 7
+difficulty: "Silver IV"
 date: 2021-10-21
 ---
 

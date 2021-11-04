@@ -1,11 +1,14 @@
 ---
-file: "1874.py"
+file: "1874.md"
 name: "스택 수열"
 src: "https://www.acmicpc.net/problem/1874"
-tags:
+tags: 
+  - 자료 구조
   - 스택
-  - 자료구조
 done: true
+draft: false
+level: 8
+difficulty: "Silver III"
 date: 2021-10-21
 ---
 

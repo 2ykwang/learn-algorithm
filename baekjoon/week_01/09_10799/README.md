@@ -1,11 +1,14 @@
 ---
-file: "10799.py"
+file: "10799.md"
 name: "쇠막대기"
 src: "https://www.acmicpc.net/problem/10799"
-tags:
+tags: 
+  - 자료 구조
   - 스택
-  - 자료구조
 done: true
+draft: false
+level: 8
+difficulty: "Silver III"
 date: 2021-10-21
 ---
 

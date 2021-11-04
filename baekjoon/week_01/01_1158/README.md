@@ -1,11 +1,14 @@
 ---
-file: "1158.py"
+file: "1158.md"
 name: "요세푸스 문제"
 src: "https://www.acmicpc.net/problem/1158"
-tags:
+tags: 
+  - 자료 구조
   - 큐
-  - 자료구조
 done: true
+draft: false
+level: 6
+difficulty: "Silver V"
 date: 2021-10-20
 ---
 

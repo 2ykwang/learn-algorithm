@@ -1,11 +1,14 @@
 ---
-file: "2164.py"
+file: "2164.md"
 name: "카드2"
 src: "https://www.acmicpc.net/problem/2164"
-tags:
+tags: 
+  - 자료 구조
   - 큐
-  - 자료구조
 done: true
+draft: false
+level: 7
+difficulty: "Silver IV"
 date: 2021-10-20
 ---
 

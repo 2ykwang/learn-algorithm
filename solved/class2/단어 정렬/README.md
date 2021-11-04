@@ -1,11 +1,14 @@
 ---
-file: "1181.py"
+file: "1181.md"
 name: "단어 정렬"
 src: "https://www.acmicpc.net/problem/1181"
-tags:
+tags: 
   - Class 2
   - 정렬
 done: true
+draft: false
+level: 6
+difficulty: "Silver V"
 date: 2021-10-25
 ---
 
