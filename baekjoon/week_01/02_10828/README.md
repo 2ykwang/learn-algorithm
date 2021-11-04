@@ -1,5 +1,5 @@
 ---
-file: "10828.md"
+file: "10828.py"
 name: "스택"
 src: "https://www.acmicpc.net/problem/10828"
 tags: 

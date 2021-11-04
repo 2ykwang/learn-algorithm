@@ -1,5 +1,5 @@
 ---
-file: "5639.md"
+file: "5639.py"
 name: "이진 검색 트리"
 src: "https://www.acmicpc.net/problem/5639"
 tags: 

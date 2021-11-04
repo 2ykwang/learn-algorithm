@@ -1,5 +1,5 @@
 ---
-file: "3584.md"
+file: "3584.py"
 name: "가장 가까운 공통 조상"
 src: "https://www.acmicpc.net/problem/3584"
 tags: 

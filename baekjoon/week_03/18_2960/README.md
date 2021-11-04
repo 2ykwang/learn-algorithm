@@ -1,5 +1,5 @@
 ---
-file: "2960.md"
+file: "2960.py"
 name: "에라토스테네스의 체"
 src: "https://www.acmicpc.net/problem/2960"
 tags: 

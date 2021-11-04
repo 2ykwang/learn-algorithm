@@ -1,5 +1,5 @@
 ---
-file: "1967.md"
+file: "1967.py"
 name: "트리의 지름"
 src: "https://www.acmicpc.net/problem/1967"
 tags: 

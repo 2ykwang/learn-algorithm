@@ -1,5 +1,5 @@
 ---
-file: "2075.md"
+file: "2075.py"
 name: "N번째 큰 수"
 src: "https://www.acmicpc.net/problem/2075"
 tags: 

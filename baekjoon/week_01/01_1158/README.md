@@ -1,5 +1,5 @@
 ---
-file: "1158.md"
+file: "1158.py"
 name: "요세푸스 문제"
 src: "https://www.acmicpc.net/problem/1158"
 tags: 

@@ -1,5 +1,5 @@
 ---
-file: "9012.md"
+file: "9012.py"
 name: "괄호"
 src: "https://www.acmicpc.net/problem/9012"
 tags: 

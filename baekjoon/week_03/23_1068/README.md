@@ -1,5 +1,5 @@
 ---
-file: "1068.md"
+file: "1068.py"
 name: "트리"
 src: "https://www.acmicpc.net/problem/1068"
 tags: 

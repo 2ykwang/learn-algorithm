@@ -1,5 +1,5 @@
 ---
-file: "11725.md"
+file: "11725.py"
 name: "트리의 부모 찾기"
 src: "https://www.acmicpc.net/problem/11725"
 tags: 

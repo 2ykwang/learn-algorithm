@@ -1,5 +1,5 @@
 ---
-file: "10866.md"
+file: "10866.py"
 name: "덱"
 src: "https://www.acmicpc.net/problem/10866"
 tags: 

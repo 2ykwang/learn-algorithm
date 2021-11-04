@@ -1,5 +1,5 @@
 ---
-file: "7662.md"
+file: "7662.py"
 name: "이중 우선순위 큐"
 src: "https://www.acmicpc.net/problem/7662"
 tags: 

@@ -1,5 +1,5 @@
 ---
-file: "10799.md"
+file: "10799.py"
 name: "쇠막대기"
 src: "https://www.acmicpc.net/problem/10799"
 tags: 

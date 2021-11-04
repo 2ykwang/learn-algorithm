@@ -1,5 +1,5 @@
 ---
-file: "5347.md"
+file: "5347.py"
 name: "LCM"
 src: "https://www.acmicpc.net/problem/5347"
 tags: 

@@ -1,5 +1,5 @@
 ---
-file: "2263.md"
+file: "2263.py"
 name: "트리의 순회"
 src: "https://www.acmicpc.net/problem/2263"
 tags: 

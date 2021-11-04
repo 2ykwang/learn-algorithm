@@ -1,5 +1,5 @@
 ---
-file: "4358.md"
+file: "4358.py"
 name: "생태학"
 src: "https://www.acmicpc.net/problem/4358"
 tags: 

@@ -1,5 +1,5 @@
 ---
-file: "1747.md"
+file: "1747.py"
 name: "소수&팰린드롬"
 src: "https://www.acmicpc.net/problem/1747"
 tags: 

@@ -1,5 +1,5 @@
 ---
-file: "1935.md"
+file: "1935.py"
 name: "후위 표기식2"
 src: "https://www.acmicpc.net/problem/1935"
 tags: 

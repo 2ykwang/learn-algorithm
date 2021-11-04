@@ -1,5 +1,5 @@
 ---
-file: "9613.md"
+file: "9613.py"
 name: "GCD 합"
 src: "https://www.acmicpc.net/problem/9613"
 tags: 
