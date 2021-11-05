@@ -14,12 +14,6 @@ __baekjoon_table__
 
 ---
 
-### [solved.ac](https://solved.ac/class) 백준
-
-__solved_table__
-
----
-
 ### [릿코드](https://leetcode.com/)
 
 __leetcode_table__
