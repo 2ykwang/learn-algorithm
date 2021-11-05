@@ -52,9 +52,9 @@
 
 |                                         이름                                          |                  태그                  |                                    풀이                                    | 완료 | 난이도 |
 | ------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------- | ---- | ------ |
-| [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | Dynamic Programming, Math, Memoization | [n-th-tribonacci-number.py](./leetcode/1137.%20N-th%20Tribonacci%20Number) | ✔️   | None   |
-| [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)                 | Dynamic Programming, Math, Memoization | [climbing-stairs.py](./leetcode/70.%20Climbing%20Stairs)                   | ✔️   | None   |
-| [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)              | String                                 | [zigzag-conversion.py](./leetcode/6.%20ZigZag%20Conversion)                | ✔️   | None   |
+| [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | Dynamic Programming, Math, Memoization | [n-th-tribonacci-number.py](./leetcode/1137.%20N-th%20Tribonacci%20Number) | ✔️   | Easy   |
+| [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)                 | Dynamic Programming, Math, Memoization | [climbing-stairs.py](./leetcode/70.%20Climbing%20Stairs)                   | ✔️   | Easy   |
+| [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)              | String                                 | [zigzag-conversion.py](./leetcode/6.%20ZigZag%20Conversion)                | ✔️   | Medium |
 
 
 ---
