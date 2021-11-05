@@ -5,6 +5,8 @@ src: "https://leetcode.com/problems/zigzag-conversion/"
 tags:
   - String
 done: true
+draft: false
+difficulty: "Medium"
 date: 2021-10-21
 ---
 # ZigZag Conversion

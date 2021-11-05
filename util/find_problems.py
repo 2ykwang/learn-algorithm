@@ -1,10 +1,24 @@
-import requests
+from collections import defaultdict
+import json
+import urllib.request
 import argparse
 import datetime
 import html
 import os
 from pytablewriter import MarkdownTableWriter
 
+__template = """
+\"\"\"
+    문제 이름: <problem_name>
+    문제 번호: <problem_id>
+    문제 링크: <url>
+    난이도: <difficulty>
+    태그: <tags>
+\"\"\"
+import sys 
+
+def input(): return sys.stdin.readline().rstrip()
+"""
 __tier_text = {
     0: "Unknown",
     1: "Bronze V",
@@ -40,6 +54,17 @@ __tier_text = {
     31: "Master",
 }
 
+
+def make_problem_content(template, problem: dict) -> str:
+    return template\
+        .replace('<problem_name>', problem['name']) \
+        .replace('<problem_id>', str(problem['id'])) \
+        .replace('<url>', problem['url']) \
+        .replace('<difficulty>', problem['difficulty']) \
+        .replace('<tags>', ', '.join(problem['tags'])) \
+
+
+
 def write_all_text(path: str, text: str) -> None:
     f = open(path, 'w')
     f.write(text)
@@ -52,7 +77,9 @@ def make_problem_yaml(problem: dict) -> str:
     lines.append(f"file: \"{problem['id']}.md\"")
     lines.append(f"name: \"{problem['name']}\"")
     lines.append(f"src: \"{problem['url']}\"")
-    tags = '\n'+'\n'.join(f'  - {x}' for x in problem['tags']) if len(problem['tags']) > 0 else ''
+    tags = '\n' + \
+        '\n'.join(
+            f'  - {x}' for x in problem['tags']) if len(problem['tags']) > 0 else ''
     lines.append(f"tags: {tags}")
     lines.append(f"done: false")
     lines.append(f"draft: false")
@@ -63,23 +90,24 @@ def make_problem_yaml(problem: dict) -> str:
     return '\n'.join(lines)
 
 
-def get_problems(problems: list) -> dict:
+def get_problems(problems: list) -> list:
     """문제 정보를 담고 있는 딕셔너리를 반환합니다.
     """
     if len(problems) < 1:
         raise ValueError("Invalid number of problems")
 
     url = f"https://solved.ac/api/v3/problem/lookup?problemIds={','.join(problems)}"
-    response = requests.get(url)
+    response = urllib.request.urlopen(url)
+    source = response.read()
 
-    if response.status_code != 200:
-        raise Exception("Unexpected response status")
+    # if response.status_code != 200:
+    #     raise Exception("Unexpected response status")
 
-    json_data = response.json()
+    json_data = json.loads(source)
     problems = []
 
     for problem in json_data:
-        problem_info = {}
+        problem_info = defaultdict(str)
         problem_info["id"] = problem["problemId"]
         problem_info["name"] = html.unescape(problem["titleKo"])
         problem_info["level"] = problem["level"]
@@ -94,6 +122,7 @@ def get_problems(problems: list) -> dict:
 
     return problems
 
+
 # response = requests.get("https://solved.ac/api/v3/problem/show?problemId=1052")
 # json_data = response.json()
 
@@ -106,6 +135,7 @@ class CommandLineParser:
                             help="사용법 -p 1052 3023", required=True, default="")
         parser.add_argument(
             "-o", "--output", help="사용법: -o 문제 정보를 저장할 디렉터리", required=False, default="")
+
         parser.add_argument(
             "-r", "--random", help="사용법: -r [최소레벨] [최대레벨] 레벨 범위 안에서 문제를 랜덤으로 가져옵니다.", required=False, default="")
         parser.add_argument(
@@ -138,12 +168,18 @@ class CommandLineParser:
         return self.__output
 
 
-if __name__ == '__main__':
-    app = CommandLineParser()
-
+def execute(app: CommandLineParser) -> None:
     if app.validation():
         problems = app.problems()
         save_dir = app.save_dir()
+
+        # 입력받은 이름 폴더 ( abs path )
+        target_dir = os.path.join(os.getcwd(), save_dir)
+        if not os.path.isdir(target_dir):
+            print(f"{save_dir} 디렉터리가 존재하지 않습니다.")
+            return
+
+        print("문제 정보를 생성합니다.")
 
         problems_info = get_problems(problems)
 
@@ -158,7 +194,22 @@ if __name__ == '__main__':
 
         print(writer.dumps())
 
-        if len(save_dir) > 0:
-            for problem in problems_info:
-                write_all_text(os.path.join(
-                    save_dir, f"{problem['id']}.md"), make_problem_yaml(problem))
+        for problem in problems_info:
+            content = make_problem_content(__template, problem)
+            problem_dir = os.path.join(
+                target_dir, f"[{problem['id']}]{problem['name']}")
+            if not os.path.isdir(problem_dir):
+                os.mkdir(problem_dir)
+
+            write_all_text(os.path.join(
+                problem_dir, f"{problem['id']}.py"), content)
+
+            write_all_text(os.path.join(
+                problem_dir, f"README.md"), make_problem_yaml(problem))
+
+        print(problems_info)
+
+
+if __name__ == '__main__':
+    app = CommandLineParser()
+    execute(app)
