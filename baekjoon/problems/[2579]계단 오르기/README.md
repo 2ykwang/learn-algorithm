@@ -4,7 +4,7 @@ name: "계단 오르기"
 src: "https://www.acmicpc.net/problem/2579"
 tags:
   - 다이나믹 프로그래밍
-done: false
+done: true
 draft: false
 level: 8
 difficulty: "Silver III"
