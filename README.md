@@ -28,6 +28,8 @@
 | [LCM](https://www.acmicpc.net/problem/5347)                   | 수학, 유클리드 호제법, 정수론                                       | [5347.py](./baekjoon/week_03/19_5347)                                                              | ✔️   | Silver IV  |
 | [GCD 합](https://www.acmicpc.net/problem/9613)                | 수학, 유클리드 호제법, 정수론                                       | [9613.py](./baekjoon/week_03/20_9613)                                                              | ✔️   | Silver III |
 | [피보나치 함수](https://www.acmicpc.net/problem/1003)         | 다이나믹 프로그래밍                                                 | [1003.md](./baekjoon/problems/%5B1003%5D%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%ED%95%A8%EC%88%98) | ✔️   | Silver III |
+| [계단 오르기](https://www.acmicpc.net/problem/2579)           | 다이나믹 프로그래밍                                                 | [2579.md](./baekjoon/problems/%5B2579%5D%EA%B3%84%EB%8B%A8%20%EC%98%A4%EB%A5%B4%EA%B8%B0)          | ✔️   | Silver III |
+| [문자열 게임 2](https://www.acmicpc.net/problem/20437)        | 문자열, 슬라이딩 윈도우                                             | [20437.md](./baekjoon/problems/%5B20437%5D%EB%AC%B8%EC%9E%90%EC%97%B4%20%EA%B2%8C%EC%9E%84%202)    | ✔️   | Gold V     |
 | [트리의 부모 찾기](https://www.acmicpc.net/problem/11725)     | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 너비 우선 탐색, 트리      | [11725.py](./baekjoon/week_02/14_11725)                                                            | ❌   | Silver II  |
 | [가장 가까운 공통 조상](https://www.acmicpc.net/problem/3584) | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 최소 공통 조상, 트리      | [3584.py](./baekjoon/week_02/16_3584)                                                              | ❌   | Gold IV    |
 | [트리의 지름](https://www.acmicpc.net/problem/1967)           | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리                      | [1967.py](./baekjoon/week_02/15_1967)                                                              | ❌   | Gold IV    |
@@ -36,7 +38,6 @@
 | [완전 이진 트리](https://www.acmicpc.net/problem/9934)        | 구현, 재귀, 트리                                                    | [9934.py](./baekjoon/week_03/21_9934)                                                              | ❌   | Silver I   |
 | [트리](https://www.acmicpc.net/problem/1068)                  | 그래프 이론, 그래프 탐색, 깊이 우선 탐색, 트리                      | [1068.py](./baekjoon/week_03/23_1068)                                                              | ❌   | Gold V     |
 | [이진 검색 트리](https://www.acmicpc.net/problem/5639)        | 그래프 이론, 그래프 탐색, 재귀, 트리                                | [5639.py](./baekjoon/week_03/22_5639)                                                              | ❌   | Silver I   |
-| [계단 오르기](https://www.acmicpc.net/problem/2579)           | 다이나믹 프로그래밍                                                 | [2579.md](./baekjoon/problems/%5B2579%5D%EA%B3%84%EB%8B%A8%20%EC%98%A4%EB%A5%B4%EA%B8%B0)          | ❌   | Silver III |
 
 
 ---
