@@ -174,7 +174,7 @@ debug = False
 
 if __name__ == "__main__":
     rows = make_filedata_list("./baekjoon")
-    baekjoon_table = make_markdown_table(rows, orderby_date=True)
+    baekjoon_table = make_markdown_table(rows)
     for tier in __tier_text.keys(): 
         baekjoon_table = baekjoon_table.replace(tier, f"![{tier}](./assets/{__tier_text[tier]}.svg)")
 
