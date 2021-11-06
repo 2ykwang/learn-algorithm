@@ -13,10 +13,46 @@ from pytablewriter import MarkdownTableWriter
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
+__tier_text = {
+    "Unknown": 0,
+    "Bronze V": 1,
+    "Bronze IV": 2,
+    "Bronze III": 3,
+    "Bronze II": 4,
+    "Bronze I": 5,
+    "Silver V": 6,
+    "Silver IV": 7,
+    "Silver III": 8,
+    "Silver II": 9,
+    "Silver I": 10,
+    "Gold V": 11,
+    "Gold IV": 12,
+    "Gold III": 13,
+    "Gold II": 14,
+    "Gold I": 15,
+    "Platinum V": 16,
+    "Platinum IV": 17,
+    "Platinum III": 18,
+    "Platinum II": 19,
+    "Platinum I": 20,
+    "Diamond V": 21,
+    "Diamond IV": 22,
+    "Diamond III": 23,
+    "Diamond II": 24,
+    "Diamond I": 25,
+    "Ruby V": 26,
+    "Ruby IV": 27,
+    "Ruby III": 28,
+    "Ruby II": 29,
+    "Ruby I": 30,
+    "Master": 31,
+}
+
+
 def get_list_of_files(dir_name: str):
     fileList = os.listdir(dir_name)
-    result = []
 
+    result = []
     for entry in fileList:
         full_path = os.path.join(dir_name, entry)
         if os.path.isdir(full_path):
@@ -77,7 +113,8 @@ def make_filedata_list(path: str):
                 raise ValueError("필요한 키가 포함되어있지 않음")
 
             # draft 처리
-            if headers.get("draft"): continue
+            if headers.get("draft"):
+                continue
 
             item = {
                 "file_name": headers.get("file"),
@@ -115,12 +152,12 @@ def make_markdown_table(hlist: list, orderby_date=False):
     hlist = sorted(hlist, key=lambda x: x["done"], reverse=True)
 
     writer = MarkdownTableWriter(
-        headers=[ "이름", "태그", "풀이", "완료", "난이도"],
+        headers=["이름", "태그", "풀이", "완료", "#"],
         value_matrix=[
             [
                 f"[{x['name']}]({x['src']})",
-                ', '.join(x['tags']), 
-                f"[{x['file_name']}]({parse.quote(x['path'])})", 
+                ', '.join(x['tags']),
+                f"[{x['file_name']}]({parse.quote(x['path'])})",
                 f"{'✔️' if x['done'] else '❌'}",
                 f"{x['difficulty']}"
 
@@ -138,6 +175,8 @@ debug = False
 if __name__ == "__main__":
     rows = make_filedata_list("./baekjoon")
     baekjoon_table = make_markdown_table(rows, orderby_date=True)
+    for tier in __tier_text.keys(): 
+        baekjoon_table = baekjoon_table.replace(tier, f"![{tier}](./assets/{__tier_text[tier]}.svg)")
 
     rows = make_filedata_list("./leetcode")
     leetcode_table = make_markdown_table(rows)
