@@ -1,22 +1,12 @@
----
-file: "9934.py"
-name: "완전 이진 트리"
-src: "https://www.acmicpc.net/problem/9934"
-tags:
-  - 구현
-  - 재귀
-  - 트리
-done: true
-draft: false
-level: 10
-difficulty: "Silver I"
-date: 2021-11-02
----
 
-#완전 이진 트리
-
-```python
-import sys
+"""
+    문제 이름: 완전 이진 트리
+    문제 번호: 9934
+    문제 링크: https://www.acmicpc.net/problem/9934
+    난이도: Silver I
+    태그: 구현, 재귀, 트리
+"""
+import sys 
 
 def input(): return sys.stdin.readline().rstrip()
 
@@ -43,4 +33,3 @@ result = solve(k, nodes)
 
 for lst in result:
     print(*lst)
-```
