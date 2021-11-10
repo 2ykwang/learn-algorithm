@@ -66,7 +66,7 @@ def make_problem_content(template, problem: dict) -> str:
 
 
 def write_all_text(path: str, text: str) -> None:
-    f = open(path, 'w')
+    f = open(path, 'w',encoding='utf8')
     f.write(text)
     f.close()
 
@@ -196,8 +196,10 @@ def execute(app: CommandLineParser) -> None:
 
         for problem in problems_info:
             content = make_problem_content(__template, problem)
+            dir_name = ''.join(x for x in problem['name'] if x.isalnum())
+
             problem_dir = os.path.join(
-                target_dir, f"[{problem['id']}]{problem['name']}")
+                target_dir, f"[{problem['id']}]{dir_name}")
             if not os.path.isdir(problem_dir):
                 os.mkdir(problem_dir)
 
