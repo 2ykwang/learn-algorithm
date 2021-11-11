@@ -6,21 +6,21 @@
     난이도: Gold II
     태그: 구현, 시뮬레이션
 """
+
 import sys
-from typing import Tuple
+from typing import List, Tuple
 
 
 def input(): return sys.stdin.readline().rstrip()
+
 
 TOP = 1
 DOWN = 2
 RIGHT = 3
 LEFT = 4
- 
-direction_reverse = {TOP: DOWN,
-        DOWN: TOP,
-        RIGHT: LEFT,
-        LEFT: RIGHT}
+
+direction_reverse = [None, DOWN, TOP, LEFT, RIGHT]  # 위치 반전
+
 
 class Shark:
     def __init__(self, x, y, s, d, z) -> None:
@@ -33,104 +33,115 @@ class Shark:
     def reverse_direction(self) -> None:
         self.direction = direction_reverse[self.direction]
 
-    def move(self, x, y) -> Tuple:
+    def __move(self, x, y) -> Tuple:
         self.x = x
         self.y = y
         return x, y
 
-    def __check_boundry(self, width, hegiht) -> Tuple:
+    def __check_boundry(self, width, height) -> Tuple[bool, int, int]:
 
-        if self.x > width or self.x < 0:
+        if self.x >= width or self.x < 0:
             self.reverse_direction()
-            dis = abs(self.x-width)
+            boundry = width-1
+            dis = abs(boundry-self.x) if self.x >= width else self.x
 
-            return (False, dis if self.direction == 4 else dis)
+            self.__move(boundry-dis if self.direction == LEFT else dis, self.y)
 
-        if self.y > hegiht or self.y < 0:
+            if self.x >= width or self.x < 0:
+                return self.__check_boundry(width, height)
+
+            return (False, boundry-dis if self.direction == LEFT else dis, self.y)
+
+        if self.y >= height or self.y < 0:
             self.reverse_direction()
-            dis = abs(self.x-hegiht)-1
+            boundry = height-1
+            dis = abs(boundry-self.y) if self.y >= height else self.y
 
-            return (False, dis if self.direction == 2 else dis)
+            self.__move(self.x, boundry-dis if self.direction == TOP else dis)
 
-        return (True, 0)
+            if self.y >= height or self.y < 0:
+                return self.__check_boundry(width, height)
 
-    def moveVec(self, width, hegiht) -> Tuple:
+            return (False, self.x, boundry-dis if self.direction == TOP else dis)
+
+    def moveVec(self, width, height) -> Tuple[int, int]:
         """
             @return: 새로운 좌표 (x, y)
         """
         speed = self.speed
         direction = self.direction
-        cur_x, cur_y = self.x, self.y 
+        cur_x, cur_y = self.x, self.y
+        path = [None,
+                (0, -speed),
+                (0, speed),
+                (-speed, 0),
+                (speed, 0),
+                ]
 
-        if direction == 1:
-            self.move(cur_x, cur_y-speed)
-            c = self.__check_boundry(width, hegiht)
-            if not c[0]:
-                self.move(self.x, c[1])
-            return self.x, self.y
+        dx, dy = path[self.direction]
+        # print(dx, dy)
+        self.__move(cur_x + dx, cur_y + dy)
+        check = self.__check_boundry(width, height)
 
-        if direction == 2:
-            self.move(cur_x, cur_y+speed)
-            c = self.__check_boundry(width, hegiht)
-            if not c[0]:
-                self.move(self.x, c[1])
-            return self.x, self.y
+        return self.x, self.y
 
-        if direction == 3:
-            self.move(cur_x+speed, cur_y)
-            c = self.__check_boundry(width, hegiht)
-            if not c[0]:
-                self.move(c[1], self.y)
-            return self.x, self.y
-
-        if direction == 4:
-            self.move(cur_x-speed, cur_y)
-            c = self.__check_boundry(width, hegiht)
-            if not c[0]:
-                self.move(c[1], self.y)
-            return self.x, self.y
-
-    def __str__(self) -> str: 
+    def __str__(self) -> str:
         direction_text = {TOP: "위", DOWN: "아래", RIGHT: "우측", LEFT: "좌측"}
-        return f"{self.x}|{self.y}|{direction_text[self.direction]}"
+        return f"{self.x}|{self.y}|{self.speed}|{direction_text[self.direction]}|{self.size}"
 
 
-class Grid:
-    def __init__(self, width, height):
-        self.__grid = [[None]*width for _ in range(height)]
-        self.sharks: list[Shark] = []
-        self.width = width
-        self.height = height
+height, width, shark_count = map(int, input().split())
+catch = 0
 
-    def add_shark(self, s: Shark) -> None:
-        self.__grid[s.y][s.x] = s
-        self.sharks.append(s)
-
-    def move_sharks(self):
-
-        for shark in self.sharks:
-            before_x, before_y = shark.x, shark.y
-            new_pos = shark.moveVec(self.width, self.height)
-
-            self.__grid[before_y][before_x] = None
-            self.__grid[new_pos[1]][new_pos[0]] = shark
-
-    def print_grid(self):
-        for y in range(self.height):
-            print(f"{', '.join(map(str,self.__grid[y]))}")
+sharks: List[Shark] = []
+grid = [[None]*width for _ in range(height)]
 
 
-g = Grid(6, 4)
+def move_shark(sharks: List[Shark]) -> None:
+    for shark in sharks:
+        shark.moveVec(width, height)
 
-g.add_shark(Shark(2, 0, 5, DOWN, 1))
-g.print_grid()
-g.move_sharks()
-print("")
-g.print_grid()  
-g.move_sharks()
-print("")
-g.print_grid()  
 
-# width, height, shark_count = map(int, input().split())
+def shark_feeding(sharks: List[Shark]) -> None:
+    for i in range(len(sharks)):
+        for j in range(len(sharks)):
+            if i < len(sharks) and j < len(sharks) and i != j and sharks[i].x == sharks[j].x and sharks[i].y == sharks[j].y:
+                if sharks[i].size > sharks[j].size:
+                    sharks.remove(sharks[j])
+                elif sharks[i].size < sharks[j].size:
+                    sharks.remove(sharks[i])
 
-# make grid
+
+def print_sharks(sharks: List[Shark]) -> None:
+    grid = [[None]*width for _ in range(height)]
+    for shark in sharks:
+        grid[shark.y][shark.x] = shark
+
+    for y in range(height):
+        print(f"{', '.join(map(str,grid[y]))}")
+
+
+# 상어 추가
+for i in range(shark_count):
+    r, c, s, d, z = map(int, input().split())
+    sharks.append(Shark(c-1, r-1, s, d, z))
+
+
+# 낚시꾼 낚시 로직
+for i in range(width):
+    target = None
+    for j in range(len(sharks)):
+        # 낚시꾼이 낚는 상어
+        if sharks[j].x == i and (target == None or sharks[j].y < target.y):
+            target = sharks[j]
+    if target != None:
+        catch += target.size
+        # print(i+1, target.size)
+        sharks.remove(target)
+    # 상어 이동
+    # print_sharks(sharks)
+    move_shark(sharks)
+    shark_feeding(sharks)
+    # print_sharks(sharks)
+
+print(catch)
